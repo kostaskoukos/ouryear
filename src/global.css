@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Arima";
+  src: url("/ouryear/Arima.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@theme {
+  --font-arima: "Arima", monospace;
+
+  --color-background: #fdf0f3;
+  --color-foreground: #2d3748;
+  --color-accent: #d53f8c;
+  --color-card: #ffffff;
+}
