@@ -1,5 +1,7 @@
 ---
+import Arrow from "../Arrow.astro";
 import "../global.css";
+import MyMap from "../MyMap";
 ---
 
 <!doctype html>
@@ -10,9 +12,44 @@ import "../global.css";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>Η επέτειος μας🩷</title>
   </head>
-  <body class="font-arima bg-accent text-foreground">
-    <h1>Χαρούμενος ένας χρόνος!</h1>
+  <body class="font-arima bg-background text-foreground">
+    <main
+      class="mx-auto flex min-h-screen max-w-5xl flex-col justify-center gap-10 relative"
+    >
+      <section class="flex items-center gap-8 text-center sm:text-left">
+        <div class="bg-accent h-80 w-80 shrink-0 rounded-full shadow-lg"></div>
+        <div class="flex flex-col gap-2">
+          <h1 class="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+            Χαρούμενος ένας χρόνος Κατερίνα!🩷
+          </h1>
+          <p class="max-w-xl text-base text-foreground/80 sm:text-lg">
+            Μια μικρή στιγμή για να γιορτάσουμε όσα μοιραστήκαμε μαζί.
+          </p>
+        </div>
+      </section>
+
+      <p class="absolute bottom-4 left-1/2 -translate-x-1/2">
+        (κάνε scroll)
+        <Arrow />
+      </p>
+    </main>
+
+    <section
+      class="mx-auto max-w-3xl pb-24 pt-24 text-base leading-8 text-foreground/80 sm:text-lg"
+    >
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tenetur
+        eum similique veniam odit. Expedita mollitia, quaerat excepturi quam ex
+        magnam eaque earum error, reprehenderit quo consequatur vero? Quidem
+        voluptatibus molestias possimus eos dolorem dolor nobis voluptatum
+        molestiae unde magnam voluptate facilis a obcaecati, nesciunt delectus
+        autem, enim quis vero?
+      </p>
+    </section>
+    <section class="min-h-screen bg-accent">
+      <MyMap client:only />
+    </section>
   </body>
 </html>
