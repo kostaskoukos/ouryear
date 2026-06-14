@@ -14,7 +14,7 @@ const MyMap: React.FC = () => {
   const position: [number, number] = [40.63759, 22.946321];
 
   return (
-    <div className="w-5/6 h-250 mx-auto py-8">
+    <div className="w-3/4 h-230 m-auto py-8">
       <MapContainer
         center={position}
         zoom={15}
@@ -22,7 +22,7 @@ const MyMap: React.FC = () => {
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <Marker position={position}>
-          <Tooltip>
+          <Tooltip direction="top">
             <p className="font-arima">
               A sample marker. You can put any React node here.
             </p>

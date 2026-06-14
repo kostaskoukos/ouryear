@@ -2,6 +2,37 @@
 import Arrow from "../Arrow.astro";
 import "../global.css";
 import MyMap from "../MyMap";
+import TimelineCard from "../TimelineCard.astro";
+
+const timelineItems = [
+  {
+    title: "Πρώτη συνάντηση",
+    description:
+      "Η αρχή όλων, εκείνη η πρώτη στιγμή που όλα άρχισαν να έχουν νόημα.",
+  },
+  {
+    title: "Πρώτο ταξίδι",
+    description: "Μια μικρή απόδραση που έμεινε σαν μεγάλη ανάμνηση.",
+  },
+  {
+    title: "Αγαπημένο τραγούδι",
+    description:
+      "Ένα τραγούδι που μας βρίσκει πάντα στην ίδια διάθεση, στο ίδιο σημείο.",
+  },
+  {
+    title: "Μικρή περιπέτεια",
+    description: "Ένα απόγευμα που ξεκίνησε απλά και κατέληξε αξέχαστο.",
+  },
+  {
+    title: "Ήρεμη στιγμή",
+    description: "Μια απλή, ήσυχη βραδιά που όμως έμεινε ξεχωριστή.",
+  },
+  {
+    title: "Στιγμή για πάντα",
+    description:
+      "Κάτι μικρό που όμως το κουβαλάμε και οι δύο σαν κάτι πολύ μεγάλο.",
+  },
+];
 ---
 
 <!doctype html>
@@ -14,42 +45,67 @@ import MyMap from "../MyMap";
     <meta name="generator" content={Astro.generator} />
     <title>Η επέτειος μας🩷</title>
   </head>
-  <body class="font-arima bg-background text-foreground">
-    <main
-      class="mx-auto flex min-h-screen max-w-5xl flex-col justify-center gap-10 relative"
-    >
-      <section class="flex items-center gap-8 text-center sm:text-left">
+  <body class="font-arima bg-background text-foreground overflow-hidden">
+    <main class="h-screen w-screen overflow-y-auto snap-y snap-proximity">
+      <section
+        class="mx-auto flex min-h-screen max-w-5xl justify-center gap-8 relative items-center text-left snap-start"
+      >
         <div class="bg-accent h-80 w-80 shrink-0 rounded-full shadow-lg"></div>
         <div class="flex flex-col gap-2">
           <h1 class="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
             Χαρούμενος ένας χρόνος Κατερίνα!🩷
           </h1>
           <p class="max-w-xl text-base text-foreground/80 sm:text-lg">
-            Μια μικρή στιγμή για να γιορτάσουμε όσα μοιραστήκαμε μαζί.
+            Ένα μέρος για να γιορτάσουμε όσα μοιραστήκαμε μαζί.
           </p>
+        </div>
+        <p class="absolute bottom-4 left-1/2 -translate-x-1/2">
+          (κάνε scroll)
+          <Arrow />
+        </p>
+      </section>
+
+      <section
+        class="min-h-screen bg-accent pb-24 pt-24 text-base leading-8 snap-start sm:text-lg"
+      >
+        <article
+          class="flex h-full flex-col gap-50 px-4 sm:px-6 lg:px-8"
+        >
+          <p class="grow text-3xl font-semibold text-background max-w-3xl mx-auto">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+            tenetur eum similique veniam odit. Expedita mollitia, quaerat
+            excepturi quam ex magnam eaque earum error, reprehenderit quo
+            consequatur vero? Quidem voluptatibus molestias possimus eos dolorem
+            dolor nobis voluptatum molestiae unde magnam voluptate facilis a
+            obcaecati, nesciunt delectus autem, enim quis vero?
+          </p>
+          <p class="text-3xl font-semibold text-background max-w-3xl mx-auto">
+            Μάζεψα μερικές μόνο από τις αγαπημένες μου στιγμές που περάσαμε
+            μαζί.
+          </p>
+        </article>
+      </section>
+
+      <section class="min-h-screen snap-start px-4 py-24 sm:px-6 lg:px-8">
+        <div class="relative mx-auto max-w-5xl">
+          <div
+            class="absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 rounded-full bg-accent"
+          >
+          </div>
+
+          <div class="space-y-12 sm:space-y-16">
+            {
+              timelineItems.map((item, index) => (
+                <TimelineCard {...item} reverse={index % 2 === 0} />
+              ))
+            }
+          </div>
         </div>
       </section>
 
-      <p class="absolute bottom-4 left-1/2 -translate-x-1/2">
-        (κάνε scroll)
-        <Arrow />
-      </p>
+      <section class="flex min-h-screen snap-start bg-accent">
+        <MyMap client:only />
+      </section>
     </main>
-
-    <section
-      class="mx-auto max-w-3xl pb-24 pt-24 text-base leading-8 text-foreground/80 sm:text-lg"
-    >
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi tenetur
-        eum similique veniam odit. Expedita mollitia, quaerat excepturi quam ex
-        magnam eaque earum error, reprehenderit quo consequatur vero? Quidem
-        voluptatibus molestias possimus eos dolorem dolor nobis voluptatum
-        molestiae unde magnam voluptate facilis a obcaecati, nesciunt delectus
-        autem, enim quis vero?
-      </p>
-    </section>
-    <section class="min-h-screen bg-accent">
-      <MyMap client:only />
-    </section>
   </body>
 </html>
