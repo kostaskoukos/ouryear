@@ -4,6 +4,9 @@ import "../global.css";
 import MyMap from "../MyMap";
 import TimelineCard from "../TimelineCard.astro";
 
+import { Image } from "astro:assets";
+
+import thumbnailImage from "../imgs/thumbnail.jpg";
 import apofpoithshImage from "../imgs/apofoithsh.jpg";
 import deuteroImage from "../imgs/deutero.jpg";
 import epanomiImage from "../imgs/epanomi.jpg";
@@ -35,15 +38,15 @@ const timelineItems = [
     image: pinkDot1Image,
   },
   {
-    title: "Επέτειος 6 μηνών στην Δράμα 23/12/25",
-    description: "18 συνεχόμενες ώρες μαζί μέσα στις γιορτές.",
-    image: dramaImage,
-  },
-  {
     title: "Γενέθλια μου 16/10/25",
     description:
       "Τα καλύτερα γενέθλια της ζωής μου (και πιθανότατα και της υπόλοιπης ζωής μου).",
     image: bday1Image,
+  },
+  {
+    title: "Επέτειος 6 μηνών στην Δράμα 23/12/25",
+    description: "18 συνεχόμενες ώρες μαζί μέσα στις γιορτές.",
+    image: dramaImage,
   },
   {
     title: "Γενέθλια σου 25/02/26",
@@ -68,7 +71,14 @@ const timelineItems = [
       <section
         class="mx-auto flex min-h-screen max-w-5xl justify-center gap-8 relative items-center text-left snap-start"
       >
-        <div class="bg-accent h-80 w-80 shrink-0 rounded-full shadow-lg"></div>
+        <div class="bg-accent h-80 w-80 shrink-0 rounded-full shadow-lg">
+          <Image
+            class="h-full w-full rounded-full object-cover"
+            src={thumbnailImage}
+            alt="Thumbnail"
+            layout="constrained"
+          />
+        </div>
         <div class="flex flex-col gap-2">
           <h1 class="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
             Χαρούμενος ένας χρόνος Κατερίνα!🩷

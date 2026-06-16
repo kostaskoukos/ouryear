@@ -26,6 +26,7 @@ import glyka from "./imgs/glyka.jpg";
 import glykoula from "./imgs/glykoula.jpg";
 import peraia from "./imgs/peraia.jpg";
 import ikea from "./imgs/ikea.jpg";
+import photoshoot from "./imgs/photoshoot.jpg";
 
 const list: {
   position: [number, number];
@@ -98,6 +99,7 @@ const list: {
     image: peraia,
   },
   { title: "Τουρ στο ΙΚΕΑ", position: [40.5505663, 22.9799773], image: ikea },
+  {title: "Photoshoot στο μετρό", position: [40.636956, 22.942232], image: photoshoot}
 ];
 
 const MyMap: React.FC = () => {
@@ -114,7 +116,6 @@ const MyMap: React.FC = () => {
         {list.map((item, index) => (
           <Marker key={index} position={item.position}>
             <Tooltip direction="top" offset={[0, -10]}>
-              {/* <div className="flex max-w-40 flex-col items-center gap-2 rounded-2xl bg-white/95 p-2 text-center shadow-lg"> */}
                 <p className="font-arima text-sm text-slate-900">
                   {item.title}
                 </p>
@@ -127,7 +128,6 @@ const MyMap: React.FC = () => {
                     className="mx-auto h-24 w-24 rounded-xl object-cover"
                   />
                 )}
-              {/* </div> */}
             </Tooltip>
           </Marker>
         ))}
