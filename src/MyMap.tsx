@@ -13,6 +13,7 @@ L.Icon.Default.mergeOptions({
     "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
 });
 
+import budapest from "./imgs/budapest.png";
 import drama from "./imgs/drama.jpg";
 import epanomi from "./imgs/epanomi.jpg";
 import pink_dot2 from "./imgs/pink_dot2.jpg";
@@ -34,9 +35,9 @@ const list: {
   title: string;
 }[] = [
   {
-    title: "Δεν βρήκα ακριβώς την φωτογραφία 😅",
+    title: "Εκεί που όλα ξεκίνησαν...",
     position: [47.4996919, 19.039325],
-    image: undefined,
+    image: budapest,
   },
   {
     title: "Δράμα στους 6 μήνες",
@@ -50,27 +51,27 @@ const list: {
   },
   {
     title: "Pink Dot",
-    position: [40.5484084, 22.9792876],
+    position: [40.5484041, 22.9819901],
     image: pink_dot2,
   },
   {
     title: "Καλαμαριά",
-    position: [40.5818617, 22.9342401],
+    position: [40.577113, 22.942994],
     image: kalamaria,
   },
   {
     title: "Κάστρα",
-    position: [40.6406907, 22.9574213],
+    position: [40.644001, 22.961858],
     image: kastra,
   },
   {
     title: "Rose Garden",
-    position: [40.7097947, 22.9073337],
+    position: [40.70991, 22.909225],
     image: apofoithsh,
   },
   {
     title: "Άναμμα δέντρου στην Αριστοτέλους",
-    position: [40.6338521, 22.9396481],
+    position: [40.63256, 22.939292],
     image: dentro,
   },
   {
@@ -80,7 +81,7 @@ const list: {
   },
   {
     title: "Σπίτι σου",
-    position: [40.6675837, 22.8996189],
+    position: [40.669094, 22.904989],
     image: spiti_sou,
   },
   {
@@ -98,8 +99,12 @@ const list: {
     position: [40.5090305, 22.9226384],
     image: peraia,
   },
-  { title: "Τουρ στο ΙΚΕΑ", position: [40.5505663, 22.9799773], image: ikea },
-  {title: "Photoshoot στο μετρό", position: [40.636956, 22.942232], image: photoshoot}
+  { title: "Τουρ στο ΙΚΕΑ", position: [40.550628, 22.984664], image: ikea },
+  {
+    title: "Photoshoot στο μετρό",
+    position: [40.636956, 22.942232],
+    image: photoshoot,
+  },
 ];
 
 const MyMap: React.FC = () => {
@@ -109,29 +114,28 @@ const MyMap: React.FC = () => {
     <div className="w-3/4 h-230 m-auto py-8">
       <MapContainer
         center={position}
-        zoom={15}
+        zoom={13}
         style={{ height: "100%", width: "100%" }}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         {list.map((item, index) => (
           <Marker key={index} position={item.position}>
             <Tooltip direction="top" offset={[0, -10]}>
-                <p className="font-arima text-sm text-slate-900">
-                  {item.title}
-                </p>
-                {item.image && (
-                  <img
-                    src={item.image.src}
-                    alt={item.title}
-                    width={100}
-                    height={100}
-                    className="mx-auto h-24 w-24 rounded-xl object-cover"
-                  />
-                )}
+              <p className="font-arima text-sm text-slate-900">{item.title}</p>
+              {item.image && (
+                <img
+                  src={item.image.src}
+                  alt={item.title}
+                  width={100}
+                  height={100}
+                  className="mx-auto h-24 w-24 rounded-xl object-cover"
+                />
+              )}
             </Tooltip>
           </Marker>
         ))}
       </MapContainer>
+      <p className="text-card text-xl text-center">(ο χάρτης έχει ένα easter egg)</p>
     </div>
   );
 };
